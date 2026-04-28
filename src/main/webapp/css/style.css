@@ -1,0 +1,780 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: #003d7a;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 30px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 16px 25px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    font-weight: 500;
+    position: relative;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: rgba(255,255,255,0.15);
+    color: #fff;
+    border-left-color: #fff;
+    padding-left: 30px;
+}
+
+.sidebar a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 280px;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+
+.sidebar .sidebar-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+    border-bottom: 3px solid #003d7a;
+    padding-bottom: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Styles pour les formulaires */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #003d7a;
+    box-shadow: 0 0 0 3px rgba(0, 61, 122, 0.1);
+    background-color: #f8f9ff;
+}
+
+button, input[type="submit"], input[type="button"] {
+    background: #003d7a;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    box-shadow: 0 2px 10px rgba(0, 61, 122, 0.3);
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 61, 122, 0.4);
+}
+
+button:active, input[type="submit"]:active, input[type="button"]:active {
+    transform: translateY(0);
+}
+
+button:disabled, input[type="submit"]:disabled {
+    background: #bdbdbd !important;
+    color: #757575 !important;
+    cursor: not-allowed !important;
+    opacity: 0.75;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Styles pour les boutons d'annulation/retour */
+.btn-cancel {
+    background: #e0e0e0;
+    color: #333;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-cancel:hover {
+    background: #b0b0b0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cancel:active {
+    transform: translateY(0);
+}
+
+/* Styles pour les tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background: #003d7a;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tr {
+    transition: all 0.2s ease;
+}
+
+tr:hover {
+    background-color: #f8f9ff;
+    box-shadow: inset 0 0 10px rgba(0, 61, 122, 0.05);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Styles pour les liens dans les tableaux */
+table a {
+    color: #003d7a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+}
+
+table a:hover {
+    color: #001f45;
+    text-decoration: underline;
+}
+
+/* Styles pour les listes */
+.qcm-list, .examen-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.qcm-list li, .examen-list li {
+    padding: 18px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.qcm-list li:hover, .examen-list li:hover {
+    background-color: #f8f9ff;
+    padding-left: 22px;
+}
+
+.question, .details {
+    flex-grow: 1;
+    font-size: 0.95em;
+}
+
+.actions a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+    color: #003d7a;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background-color: rgba(0, 61, 122, 0.1);
+}
+
+.actions a:hover {
+    color: white;
+    background-color: #003d7a;
+}
+
+/* Styles pour les liens généraux */
+a {
+    color: #003d7a;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:not(table a):not(.actions a):hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Styles pour les messages */
+.error {
+    color: #c0392b;
+    background: #ffebee;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 5px solid #c0392b;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.1);
+}
+
+.success {
+    color: #1e7e34;
+    background: #e8f5e9;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 5px solid #1e7e34;
+    box-shadow: 0 2px 8px rgba(30, 126, 52, 0.1);
+}
+
+.warning {
+    color: #f57f17;
+    background: #fff3e0;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 5px solid #f57f17;
+    box-shadow: 0 2px 8px rgba(245, 127, 23, 0.1);
+}
+
+/* Bouton ajouter */
+.add-button, .btn-primary {
+    background: #28a745;
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.add-button:hover, .btn-primary:hover {
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+    color: white;
+    background: #218838;
+}
+
+/* Bouton modifier */
+.btn-info, .btn-edit {
+    background: #0066cc;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-info:hover, .btn-edit:hover {
+    transform: translateY(-2px);
+    background: #0052a3;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    background: #c82333;
+}
+
+/* Conteneurs de cartes */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    border-bottom: 2px solid #003d7a;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #003d7a;
+    padding-bottom: 10px;
+}
+
+/* Icônes */
+.sidebar a i {
+    color: white;
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+.add-button i {
+    margin-right: 10px;
+}
+
+.btn-edit-icon,
+.btn-delete-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.btn-edit-icon i{
+    color: #005ebd;
+    font-size: 0.9em;
+}
+
+.btn-delete-icon i {
+    color: #c82333;
+    font-size: 0.9em;
+}
+
+.btn-edit-icon:hover {
+    background-color: #ffffff;
+    color: #005ebd;
+}
+
+.btn-delete-icon:hover {
+    background-color: #ffffff;
+    color: #c82333;
+}
+
+/* ===== CARDS STYLE ===== */
+.qcm-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.qcm-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 61, 122, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    border-left: 4px solid #003d7a;
+}
+
+.qcm-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 61, 122, 0.12);
+    transform: translateX(4px);
+}
+
+.qcm-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.qcm-question {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.qcm-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.tag-niveau {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+}
+
+.tag-theme {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+    border: 1px solid #ce93d8;
+}
+
+.tag i {
+    font-size: 0.9em;
+}
+
+.qcm-card-actions {
+    padding: 15px 20px;
+    background-color: transparent;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.btn-view {
+    background-color: #fff8e1;
+    color: #f57f17;
+    border: 1px solid #ffcc02;
+}
+
+.btn-view:hover {
+    background-color: #f57f17;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border: 1px solid #90caf9;
+}
+
+.btn-edit:hover {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ef9a9a;
+}
+
+.btn-delete:hover {
+    background-color: #b71c1c;
+    color: white;
+}
+
+.btn-action i {
+    font-size: 0.9em;
+}
+
+.no-data {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 61, 122, 0.08);
+}
+
+.no-data i {
+    font-size: 3em;
+    color: #ccc;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.no-data p {
+    color: #999;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.no-data a {
+    color: #003d7a;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.no-data a:hover {
+    text-decoration: underline;
+    color: #001f45;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 280px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: auto;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .qcm-card {
+        flex-direction: column;
+    }
+    
+    .qcm-card-actions {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+    
+    .btn-action {
+        flex: 1;
+        min-width: 70px;
+        justify-content: center;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar li {
+        margin: 0;
+    }
+
+    .sidebar a {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-bottom: 280px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    button, input[type="submit"], input[type="button"] {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    .actions a {
+        display: block;
+        margin: 5px 0;
+        padding: 8px 10px;
+    }
+}

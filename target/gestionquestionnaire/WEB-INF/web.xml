@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <servlet>
+        <servlet-name>EtudiantServlet</servlet-name>
+        <servlet-class>servlet.EtudiantServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EtudiantServlet</servlet-name>
+        <url-pattern>/etudiant</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>QcmServlet</servlet-name>
+        <servlet-class>servlet.QcmServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>QcmServlet</servlet-name>
+        <url-pattern>/qcm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ExamenServlet</servlet-name>
+        <servlet-class>servlet.ExamenServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ExamenServlet</servlet-name>
+        <url-pattern>/examen</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionExamenServlet</servlet-name>
+        <servlet-class>servlet.SessionExamenServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SessionExamenServlet</servlet-name>
+        <url-pattern>/SessionExamen</url-pattern>
+    </servlet-mapping>
+
+</web-app>
