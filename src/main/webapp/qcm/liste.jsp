@@ -120,6 +120,33 @@
     <div class="main-content">
         <h2>Liste des QCM</h2>
 
+        <%-- Message flash (succès / erreur) depuis la session --%>
+        <c:if test="${not empty sessionScope.flashMessage}">
+            <div id="flashMsg" class="${sessionScope.flashType == 'error' ? 'error' : 'success'}"
+                 style="display:flex;align-items:center;gap:12px;margin-bottom:20px;transition:opacity 0.5s ease;">
+                <c:choose>
+                    <c:when test="${sessionScope.flashType == 'success'}">
+                        <i class="fas fa-check-circle" style="font-size:1.3em;flex-shrink:0;"></i>
+                    </c:when>
+                    <c:otherwise>
+                        <i class="fas fa-exclamation-circle" style="font-size:1.3em;flex-shrink:0;"></i>
+                    </c:otherwise>
+                </c:choose>
+                <span>${sessionScope.flashMessage}</span>
+            </div>
+            <c:remove var="flashMessage" scope="session"/>
+            <c:remove var="flashType"   scope="session"/>
+            <script>
+                (function() {
+                    var el = document.getElementById('flashMsg');
+                    if (el) setTimeout(function() {
+                        el.style.opacity = '0';
+                        setTimeout(function() { el.style.display = 'none'; }, 500);
+                    }, 3000);
+                })();
+            </script>
+        </c:if>
+
         <!-- Barre de contrôles -->
         <div class="controls-bar">
             <a href="qcm?action=new" class="add-button"><i class="fas fa-plus"></i> Ajouter un QCM</a>

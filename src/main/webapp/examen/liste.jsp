@@ -166,6 +166,33 @@
     <div class="main-content">
         <h2>Examens</h2>
 
+        <%-- Message flash (succès / erreur) depuis la session --%>
+        <c:if test="${not empty sessionScope.flashMessage}">
+            <div id="flashMsg" class="${sessionScope.flashType == 'error' ? 'error' : 'success'}"
+                 style="display:flex;align-items:center;gap:12px;margin-bottom:20px;transition:opacity 0.5s ease;">
+                <c:choose>
+                    <c:when test="${sessionScope.flashType == 'success'}">
+                        <i class="fas fa-check-circle" style="font-size:1.3em;flex-shrink:0;"></i>
+                    </c:when>
+                    <c:otherwise>
+                        <i class="fas fa-exclamation-circle" style="font-size:1.3em;flex-shrink:0;"></i>
+                    </c:otherwise>
+                </c:choose>
+                <span>${sessionScope.flashMessage}</span>
+            </div>
+            <c:remove var="flashMessage" scope="session"/>
+            <c:remove var="flashType"   scope="session"/>
+            <script>
+                (function() {
+                    var el = document.getElementById('flashMsg');
+                    if (el) setTimeout(function() {
+                        el.style.opacity = '0';
+                        setTimeout(function() { el.style.display = 'none'; }, 500);
+                    }, 3000);
+                })();
+            </script>
+        </c:if>
+
         <!-- Barre de contrôles -->
         <div class="controls-bar">
             <a href="${pageContext.request.contextPath}/SessionExamen?action=demarrer" class="start-btn">
@@ -222,7 +249,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th><i class="fas fa-user"></i> Étudiant</th>
                             <th><i class="fas fa-layer-group"></i> Niveau</th>
                             <th><i class="fas fa-book"></i> Thème</th>
@@ -234,7 +260,6 @@
                     <tbody>
                         <c:forEach var="e" items="${liste}">
                         <tr>
-                            <td>${e.numExam}</td>
                             <td>
                                 <c:choose>
                                     <c:when test="${not empty e.nomEtudiant}">
@@ -335,8 +360,8 @@
                                 </td>
                                 <td>${e.anneeUniv}</td>
                                 <td>
-                                    <span class="note-badge ${e.note >= 15 ? 'note-good' : e.note >= 10 ? 'note-mid' : 'note-bad'}">
-                                        ${e.note}/20
+                                    <span class="note-badge ${e.note >= 8 ? 'note-good' : e.note >= 5 ? 'note-mid' : 'note-bad'}">
+                                        ${e.note}/10
                                     </span>
                                 </td>
                             </tr>

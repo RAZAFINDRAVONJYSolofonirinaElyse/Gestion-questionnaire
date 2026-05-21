@@ -9,6 +9,17 @@ import java.util.List;
 
 public class EtudiantDAO {
     
+    public boolean existsByNum(String num) throws Exception {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(
+                 "SELECT COUNT(*) FROM etudiant WHERE num_etudiant = ?")) {
+            ps.setString(1, num);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() && rs.getInt(1) > 0;
+            }
+        }
+    }
+
     public void ajouterEtudiant(Etudiant etudiant){
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "INSERT INTO etudiant  VALUES (?, ?, ?, ?, ?)";

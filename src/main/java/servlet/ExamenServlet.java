@@ -103,8 +103,19 @@ public class ExamenServlet extends HttpServlet {
 
     private void deleteExamen(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        examenDAO.delete(id);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            examenDAO.delete(id);
+            setFlash(request, "success", "L'examen #" + id + " a été supprimé avec succès.");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            setFlash(request, "error", "Erreur lors de la suppression de l'examen.");
+        }
         response.sendRedirect("examen");
+    }
+
+    private void setFlash(HttpServletRequest request, String type, String message) {
+        request.getSession().setAttribute("flashType",    type);
+        request.getSession().setAttribute("flashMessage", message);
     }
 }
